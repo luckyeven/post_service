@@ -15,11 +15,11 @@ def post(id):
     
     # Get user info from User Service
     if post_info:
-        response = requests.get(f'https://myuserservice.azurewebsites.net/user/{post_info["user_id"]}')
+        response = requests.get(f'https://userservice.ashyrock-0da57b89.canadacentral.azurecontainerapps.io/user/{post_info["user_id"]}')
         if response.status_code == 200:
             post_info['user'] = response.json()
 
     return jsonify(post_info)
 
 if __name__ == '__main__':
-    app.run(port=5001)
+    app.run()
